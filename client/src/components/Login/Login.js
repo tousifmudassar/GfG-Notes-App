@@ -6,7 +6,7 @@ const Login = ({ handleAuth }) => {
     <div className="container">
       <div className="row">
         <div className="col-6">
-          <LoginForm handleAuth={this.handleAuth} />
+          <LoginForm handleAuth={handleAuth} />
         </div>
         <div className="col-6">Registration</div>
       </div>
