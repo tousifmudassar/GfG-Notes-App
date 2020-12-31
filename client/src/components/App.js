@@ -39,7 +39,11 @@ class App extends Component {
         <Header dark={true} className="Header">
           GfG Notes App
         </Header>
-        {this.state.User ? <Welcome User={this.state.User} /> : <Login />}
+        {this.state.User ? (
+          <Welcome User={this.state.User} />
+        ) : (
+          <Login handleAuth={this.handleAuth} />
+        )}
       </div>
     );
   }
