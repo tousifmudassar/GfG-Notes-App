@@ -42,7 +42,7 @@ class App extends Component {
         {this.state.User ? (
           <Welcome User={this.state.User} />
         ) : (
-          <Login handleAuth={this.handleAuth} />
+          <Login handleAuth={this.handleAuth} Error={this.state.Error} />
         )}
       </div>
     );

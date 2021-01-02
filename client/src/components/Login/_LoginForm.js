@@ -18,8 +18,11 @@ export class LoginForm extends Component {
   };
   render() {
     return (
-      <form className="LoginForm" onSubmit="handleSubmit">
+      <form className="LoginForm" onSubmit={this.handleSubmit}>
         <h2>Login</h2>
+        {this.props.Error && (
+          <div className="alert alert-danger">{this.props.Error}</div>
+        )}
         {[
           {
             Id: "Username",
