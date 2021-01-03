@@ -6,7 +6,7 @@ const WelcomeHeader = ({ User, handleLogout }) => {
       <div className="row">
         <div className="col-12">
           <div className="border rounded p-2">
-            <p className="m-0">Welcome, {User.Name}.</p>
+            <p className="m-0">Welcome, {User.Name}!</p>
             <button className="btn btn-danger btn-sm" onClick={handleLogout}>
               Logout
             </button>
