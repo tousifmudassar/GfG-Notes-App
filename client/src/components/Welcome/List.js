@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter, Link } from "react-router-dom";
 
 const List = ({ Notes, setCurrentNote, CurrentNote }) => {
   return (
@@ -22,4 +23,4 @@ const List = ({ Notes, setCurrentNote, CurrentNote }) => {
   );
 };
 
-export default List;
+export default withRouter(List);
