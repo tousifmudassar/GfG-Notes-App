@@ -1,6 +1,6 @@
 import React from "react";
 
-function List({ Notes, setCurrentNote, CurrentNote }) {
+const List = ({ Notes, setCurrentNote, CurrentNote }) => {
   return (
     <>
       <h3>Notes List</h3>
@@ -12,7 +12,7 @@ function List({ Notes, setCurrentNote, CurrentNote }) {
               (CurrentNote === key ? "active" : "")
             }
             key={key}
-            onClick={() => setCurrentNote(item)}
+            onClick={() => setCurrentNote(key)}
           >
             {item}
           </li>
@@ -20,6 +20,6 @@ function List({ Notes, setCurrentNote, CurrentNote }) {
       </ul>
     </>
   );
-}
+};
 
 export default List;
