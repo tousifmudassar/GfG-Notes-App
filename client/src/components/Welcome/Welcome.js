@@ -6,7 +6,24 @@ import { Route } from "react-router-dom";
 
 class Welcome extends Component {
   state = {
-    Notes: ["Note 1", "Note 2", "Note 3", "Note 4"]
+    Notes: [
+      {
+        NoteID: "hello",
+        Title: "Hello World",
+        Desc:
+          "Hello World Hello World Hello World Hello World Hello World Hello World"
+      },
+      {
+        NoteID: "faq",
+        Title: "Frequently Asked Questions",
+        Desc: "What Questions are you asking frequently."
+      },
+      {
+        NoteID: "GfG",
+        Title: "GeeksforGeeks",
+        Desc: "Hello GeeksforGeeks"
+      }
+    ]
   };
 
   render() {
