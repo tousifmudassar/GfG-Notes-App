@@ -1,24 +1,27 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
-const List = ({ Notes, setCurrentNote, CurrentNote }) => {
+const List = ({ Notes, match }) => {
   return (
     <>
       <h3>Notes List</h3>
-      <ul className="list-group">
+
+      <div className="list-group">
         {Notes.map((item, key) => (
-          <li
+          <Link
+            to={"/note-" + key}
             className={
               "list-group-item list-group-item-action" +
-              (CurrentNote === key ? "active" : "")
+              (+match.params.NoteID.replace("note-", "") === key
+                ? "active"
+                : "")
             }
             key={key}
-            onClick={() => setCurrentNote(key)}
           >
             {item}
-          </li>
+          </Link>
         ))}
-      </ul>
+      </div>
     </>
   );
 };

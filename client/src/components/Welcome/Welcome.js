@@ -2,33 +2,31 @@ import React, { Component } from "react";
 import List from "./List";
 import Note from "./Note";
 import WelcomeHeader from "./WelcomeHeader";
+import { Route } from "react-router-dom";
 
 class Welcome extends Component {
   state = {
-    Notes: ["Note 1", "Note 2", "Note 3", "Note 4"],
-    CurrentNote: null
+    Notes: ["Note 1", "Note 2", "Note 3", "Note 4"]
   };
-  setCurrentNote = CurrentNote => {
-    this.setState({
-      CurrentNote
-    });
-  };
+
   render() {
     const { User, handleLogout } = this.props;
     return (
       <div className="container">
         <WelcomeHeader User={User} handleLogout={handleLogout} />
         <div className="row mt-3">
-          <div className="col-3">
-            <List
-              Notes={this.state.Notes}
-              CurrentNote={this.state.CurrentNote}
-              setCurrentNote={this.setCurrentNote}
-            />
-          </div>
-          <div className="col-9">
-            <Note CurrentNote={this.state.CurrentNote} />
-          </div>
+          <Route path={["/:NoteID", "/"]}>
+            <div className="col-3">
+              <List
+                Notes={this.state.Notes}
+                CurrentNote={this.state.CurrentNote}
+                setCurrentNote={this.setCurrentNote}
+              />
+            </div>
+            <div className="col-9">
+              <Note CurrentNote={this.state.CurrentNote} />
+            </div>
+          </Route>
         </div>
       </div>
     );
