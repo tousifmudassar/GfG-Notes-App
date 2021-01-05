@@ -17,14 +17,10 @@ class Welcome extends Component {
         <div className="row mt-3">
           <Route path={["/:NoteID", "/"]}>
             <div className="col-3">
-              <List
-                Notes={this.state.Notes}
-                CurrentNote={this.state.CurrentNote}
-                setCurrentNote={this.setCurrentNote}
-              />
+              <List Notes={this.state.Notes} />
             </div>
             <div className="col-9">
-              <Note CurrentNote={this.state.CurrentNote} />
+              <Note />
             </div>
           </Route>
         </div>

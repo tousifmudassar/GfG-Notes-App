@@ -12,7 +12,8 @@ const List = ({ Notes, match }) => {
             to={"/note-" + key}
             className={
               "list-group-item list-group-item-action" +
-              (+match.params.NoteID.replace("note-", "") === key
+              (match.params.NoteID &&
+              +match.params.NoteID.replace("note-", "") === key
                 ? "active"
                 : "")
             }
