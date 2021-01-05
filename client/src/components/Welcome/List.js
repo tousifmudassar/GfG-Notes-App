@@ -4,10 +4,10 @@ import { withRouter, Link } from "react-router-dom";
 const List = ({ Notes, match }) => {
   return (
     <>
-      <h3>Notes List</h3>
+      <h3 className="mb-">Notes List</h3>
 
       <div className="list-group">
-        {Notes.map((item, key) => (
+        {Notes.map((note, key) => (
           <Link
             to={"/note-" + key}
             className={
@@ -19,7 +19,7 @@ const List = ({ Notes, match }) => {
             }
             key={key}
           >
-            {item}
+            {note.Title}
           </Link>
         ))}
       </div>
