@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header/Header";
 import Welcome from "./Welcome/Welcome";
 import Login from "./Login/Login";
+import { AuthUser } from "../services/User";
 
 class App extends Component {
   state = {
@@ -9,29 +10,21 @@ class App extends Component {
     Error: null
   };
   handleAuth = (username, password) => {
-    const Users = {
-      Mudassar: "123",
-      Praveen: "Hello123"
-    };
-    if (!Users[username]) {
-      //User not found
-      this.setState({
-        User: null,
-        Error: "User not found!"
+    AuthUser(username, password)
+      .then(res => {
+        this.setState({
+          User: res.data.Message,
+          AuthError: null,
+          RegError: null,
+          RegSuccess: null
+        });
+      })
+      .catch(error => {
+        this.setState({
+          User: null,
+          AuthError: error.response.data.Message
+        });
       });
-    } else if (Users[username] && Users[username] !== password) {
-      //password is wrong
-      this.setState({
-        User: null,
-        Error: "Wrong Password!"
-      });
-    } else {
-      //password is right.
-      this.setState({
-        User: { Name: username },
-        Error: null
-      });
-    }
   };
   handleLogout = e => {
     e.preventDefault();
