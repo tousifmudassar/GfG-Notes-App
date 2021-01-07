@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header/Header";
 import Welcome from "./Welcome/Welcome";
 import Login from "./Login/Login";
-import { AuthUser } from "../services/User";
+import { AuthUser, LogoutUser } from "../services/User";
 
 class App extends Component {
   state = {
@@ -48,6 +48,11 @@ class App extends Component {
   };
   handleLogout = e => {
     e.preventDefault();
+    LogoutUser().then(() => {
+      this.setState({
+        User: null
+      });
+    });
     this.setState({
       User: null
     });
