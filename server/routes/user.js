@@ -37,6 +37,9 @@ user.post("/login", (req, res) => {
       Message: "Invalid username and password!"
     });
   } else {
+    req.session.User = {
+      Name: username
+    };
     //password is right.
     res.json({
       Error: false,
