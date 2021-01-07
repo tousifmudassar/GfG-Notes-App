@@ -8,7 +8,13 @@ class Welcome extends Component {
   state = {
     Notes: []
   };
-
+  componentDidMount() {
+    GetNotes().then(res => {
+      this.setState({
+        Notes: res.data
+      });
+    });
+  }
   render() {
     const { User, handleLogout } = this.props;
     return (
