@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FormGroup from "../Forms/FormGroup";
 
-export class LoginForm extends Component {
+class LoginForm extends Component {
   state = {
     Username: "",
     Password: ""
@@ -18,7 +18,7 @@ export class LoginForm extends Component {
   render() {
     return (
       <form className="LoginForm" onSubmit={this.handleSubmit}>
-        <h3>Login</h3>
+        <h3 className="mb-3">Login</h3>
         {this.props.Error && (
           <div className="alert alert-danger">{this.props.Error}</div>
         )}
