@@ -7,7 +7,9 @@ import { AuthUser } from "../services/User";
 class App extends Component {
   state = {
     User: null,
-    Error: null
+    AuthError: null,
+    RegError: null,
+    RegSuccess: null
   };
   handleAuth = (username, password) => {
     AuthUser(username, password)
@@ -26,6 +28,24 @@ class App extends Component {
         });
       });
   };
+  handleReg = (username, password) => {
+    RegUser(username, password)
+      .then(res => {
+        this.setState({
+          User: null,
+          AuthError: null,
+          RegError: null,
+          RegSuccess: res.data.Message
+        });
+      })
+      .catch(error => {
+        this.setState({
+          User: null,
+          RegSuccess: null,
+          RegError: error.response.data.Message
+        });
+      });
+  };
   handleLogout = e => {
     e.preventDefault();
     this.setState({
@@ -41,7 +61,13 @@ class App extends Component {
         {this.state.User ? (
           <Welcome User={this.state.User} handleLogout={this.handleLogout} />
         ) : (
-          <Login handleAuth={this.handleAuth} Error={this.state.Error} />
+          <Login
+            handleAuth={this.handleAuth}
+            handleReg={this.handleReg}
+            RegSuccess={this.state.RegSuccess}
+            AuthError={this.state.AuthError}
+            RegError={this.state.RegError}
+          />
         )}
       </div>
     );
