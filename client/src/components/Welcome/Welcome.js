@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { GetNotes } from "../../services/Notes";
 import List from "./List";
 import Note from "./Note";
 import WelcomeHeader from "./WelcomeHeader";
@@ -23,7 +24,7 @@ class Welcome extends Component {
         <div className="row mt-3">
           <Route path={["/:NoteID", "/"]}>
             <div className="col-3">
-              <List Notes={this.state.Notes} />
+              <List Notes={this.state.Notes} User={User} />
             </div>
             <div className="col-9">
               <Note Notes={this.state.Notes} />
