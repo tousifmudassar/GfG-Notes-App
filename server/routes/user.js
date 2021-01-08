@@ -3,7 +3,8 @@ const user = require("express").Router();
 //Dummy list of users for now.
 const Users = {
   Mudassar: "123",
-  Praveen: "Hello123"
+  Praveen: "Hello123",
+  Mishkat: "1234"
 };
 
 user.get("/", (req, res) => {

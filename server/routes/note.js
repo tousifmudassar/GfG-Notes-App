@@ -28,7 +28,7 @@ const Notes = [
     Title: "Ned Stark",
     Desc:
       "Eddard Stark is a fictional character in the 1996 fantasy novel A Game of Thrones by **George R. R. Martin**, and Game of Thrones, HBO's adaptation of Martin's A Song of Ice and Fire series. In the storyline, Ned is the lord of Winterfell, an ancient fortress in the North of the fictional continent of Westeros.",
-    User: "Praveen"
+    User: "Mishkat"
   }
 ];
 
