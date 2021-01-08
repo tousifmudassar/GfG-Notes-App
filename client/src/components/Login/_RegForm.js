@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FormGroup from "../Forms/FormGroup";
 
 export class RegForm extends Component {
   state = {
