@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
 const List = ({ Notes, match }) => {
+  const [Filter, setFilter] = useState("All");
+  const Filters = ["All", "My Notes"];
+  const handleFilter = e => {
+    e.preventDefault();
+    setFilter(e.target.innerHTML.trim());
+  };
   return (
     <>
-      <h3 className="mb-">Notes List</h3>
+      <h3 className="mb-3">Notes List</h3>
+      <div className="btn-group d-flex mb-3">
+        {Filters.map((btn, key) => (
+          <button
+            className={
+              "btn btn-" + (Filter === btn ? "primary" : "outline-secondary")
+            }
+            key={key}
+            onClick={handleFilter}
+          >
+            {btn}
+          </button>
+        ))}
+      </div>
 
       <div className="list-group">
         {Notes.map((note, key) => (
