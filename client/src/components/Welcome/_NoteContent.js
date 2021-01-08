@@ -1,5 +1,4 @@
 import React from "react";
-import MDEditor from "@uiw/react-md-editor";
 
 const NoteContent = ({ match, Notes }) => {
   if (Notes.length === 0) {
@@ -19,16 +18,12 @@ const NoteContent = ({ match, Notes }) => {
       </>
     );
   }
-  const { NoteID, Title, Desc, User } = Note;
+  const { NoteID, Title } = Note;
   return (
     <>
       <h3 className="mb-3">
         {Title} <code>({NoteID})</code>
       </h3>
-      <p>
-        <em>Created by {User}.</em>
-      </p>
-      <MDEditor.Markdown source={Desc} />
     </>
   );
 };
